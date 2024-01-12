@@ -7,8 +7,8 @@ const ProvinciaList = ({ results }) => {
         return <img src="../../src/assets/sol.gif" alt="" />;
       case "Nubes altas":
         return <img src="../../src/assets/nublado.gif" alt="" />;
-        case "Poco nuboso":
-          return <img src="../../src/assets/pocasNubes.gif" alt="" />;
+      case "Poco nuboso":
+        return <img src="../../src/assets/pocasNubes.gif" alt="" />;
       default:
         return "Símbolo predeterminado";
     }
