@@ -14,9 +14,9 @@ function useFetch(url) {
         .then((responseData) => {
           localStorage.setItem(
             "cachedData",
-            JSON.stringify(responseData.provincias)
+            JSON.stringify(responseData.ciudades)
           );
-          setData(responseData.provincias);
+          setData(responseData.ciudades);
         })
         .catch((error) => {
           console.error("Error fetching data:", error);

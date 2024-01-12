@@ -3,7 +3,7 @@ import useFetch from "./useFetch";
 import Provinces from "./Provinces";
 
 function ProvinciaBrowser() {
-  const { data } = useFetch("https://www.el-tiempo.net/api/json/v2/provincias");
+  const { data } = useFetch("https://www.el-tiempo.net/api/json/v2/home");
   const [search, setSearch] = useState("");
   const searcher = (e) => {
     setSearch(e.target.value);
@@ -14,7 +14,7 @@ function ProvinciaBrowser() {
     results = data;
   } else {
     results = data.filter((dato) => {
-      return dato.NOMBRE_PROVINCIA.toLowerCase().includes(search.toLowerCase());
+      return dato.name.toLowerCase().includes(search.toLowerCase());
     });
   }
 
