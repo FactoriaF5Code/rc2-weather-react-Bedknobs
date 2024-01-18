@@ -1,33 +1,33 @@
 import PropTypes from "prop-types";
+import { simbolo } from "./Simbolos";
 
 const ProvinciaList = ({ results }) => {
-  const obtenerSimboloPorId = (description) => {
-    switch (description) {
-      case "Despejado":
-        return <img src="../../src/assets/sol.gif" alt="" />;
-      case "Nubes altas":
-        return <img src="../../src/assets/nublado.gif" alt="" />;
-      case "Poco nuboso":
-        return <img src="../../src/assets/pocasNubes.gif" alt="" />;
-      default:
-        return "Símbolo predeterminado";
-    }
-  };
-
   return (
-    <ul>
+    <>
       {results &&
         results.length > 0 &&
         results.map((city) => (
-          <div key={city.id}>
-            <li>{city.name}</li>
-            <li>{city.stateSky.description}</li>
-            <p>Símbolo: {obtenerSimboloPorId(city.stateSky.description)}</p>
-            <li>{city.temperatures.max}</li>
-            <li>{city.temperatures.min}</li>
+          <div className="container" key={city.id}>
+            <section className="weather">
+              <div>
+                <p className="cityName">{city.name}</p>
+                <p className="description">{city.stateSky.description}</p>
+              </div>
+              <div>
+                <p>Temperatura máxima:</p>
+                <p className="maxTemperature">{city.temperatures.max}</p>
+              </div>
+              <div>
+                <p>Temperatura mínima:</p>
+                <p className="minTemperature">{city.temperatures.min}</p>
+              </div>
+            </section>
+            <section>
+            <p className="simbol">{simbolo(city.stateSky.description)}</p>
+            </section>
           </div>
         ))}
-    </ul>
+    </>
   );
 };
 

@@ -19,14 +19,23 @@ function Weather() {
   }
 
   return (
-    <div>
+    <div className="center">
+      <p className="title">¿Qué tiempo va a hacer hoy?</p>
+      <p className="subtitle">
+        Escribe el lugar del que desees conocer el tiempo
+      </p>
+      <p className="namesCitys">
+        Madrid, Barcelona, Sevilla, Valencia, Bilbao, A Coruña, Oviedo, Puerto
+        de la Cruz, Eivissa, Cáceres, Almería, Cazorla
+      </p>
       <input
+        className="browser"
         type="text"
         value={search}
         onChange={searcher}
-        placeholder="Provincia"
+        placeholder="Madrid..."
       />
-      <Provinces results={results} />
+      {search && <Provinces results={results} />}
     </div>
   );
 }
